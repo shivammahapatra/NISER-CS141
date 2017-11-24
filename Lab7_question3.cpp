@@ -1,48 +1,73 @@
+/*
+Create a class for rectangle that stores data of length and breadth and has two functions :
+area() and perimeter(). Write a program that uses this class to create two rectangles (rectangle objects)
+of user inputted length and breadth. Compare the areas and perimeter of the those rectangles.
+*/
+
 #include <iostream>
 using namespace std;
-class rect
+
+class Rectangle
 {
- public:
- double l;
- double b;
- double per()
- {
-  return 2*(l+b);
- }
- double area()
- {
-  return l*b;
- } 
+  public:
+  double length;
+  double breadth;
+  double ar;
+  double per;
+  double perimeter(double len, double bre);    //to return the perimeter of the rectangle 
+  double area(double len, double bre);          //to return the area of the rectangle 
 };
+
+double Rectangle::perimeter(double l,double b)
+{ 
+  return l+b;
+}
+double Rectangle::area(double l,double b)
+{
+  return l*b;
+}
+
 int main()
 {
- rect rect1;
- rect rect2;
- double p=0.0,per1,per2;
- double a=0.0,area1,area2;
- cout<<"Enter the length of the first rectangle\n";
- cin>>rect1.l;
- cout<<"Enter the breadth of the first rectangle\n";
- cin>>rect1.b;
- cout<<"Enter the length of the second rectangle\n";
- cin>>rect2.l;
- cout<<"Enter the breadth of the second rectangle\n";
- cin>>rect2.b;
- per1=rect1.per();
- per2=rect2.per();
- if(per1>per2)
- cout<<"The first rectangle has a greater perimeter\n";
- else if(per2>per1)
- cout<<"The second rectangle has a greater perimeter\n";
- else 
- cout<<"Both have the same perimeter\n";
- area1=rect1.area();
- area2=rect2.area();
- if(area1>area2)
- cout<<"The first rectangle has a greater area\n";
- else if(area2>area1)
- cout<<"The second rectangle has a greater area\n";
- else
- cout<<"Both have the same area\n";
-}
- 
+   
+   Rectangle RL1, RL2;
+   cout<<"IMPLEMENTING CLASS CONCEPTS CPP3.cpp";
+   cout<<"\n \nPROGRAM TO FIND AREA AND PERIMETER OF A TRIANGLE AND COMPARE IT WITH ANOTHER";
+   cout<<"\n \nEnter the length of FIRST rectangle: ";
+   cin>>RL1.length;
+   cout<<"\n \nEnter the breadth of FIRST rectangle: ";
+   cin>>RL1.breadth;
+   cout<<"\n \nEnter the length of SECOND rectangle: ";
+   cin>>RL2.length;
+   cout<<"\n \nEnter the breadth of SECOND rectangle: ";
+   cin>>RL2.breadth;
+   RL1.ar=RL1.area(RL1.length,RL1.breadth);
+   RL1.per=RL1.perimeter(RL1.length,RL1.breadth);
+   RL2.ar=RL2.area(RL2.length,RL2.breadth);
+   RL2.per=RL2.perimeter(RL2.length,RL2.breadth);
+   if(RL1.ar>RL2.ar)
+   { 
+     cout<<"\nArea of Rectangle 1 is greater than Rectangle 2";
+   }
+   else if(RL1.ar<RL2.ar)
+   { 
+     cout<<"\nArea of Rectangle 2 is greater than Rectangle 1";
+   }
+   else
+   {
+     cout<<"\nArea of Rectangle 1 and Rectangle 2 are equal";
+   }
+   if(RL1.per>RL2.per)
+   { 
+     cout<<"\nPerimeter of Rectangle 1 is greater than Rectangle 2";
+   }
+   else if(RL1.per<RL2.per)
+   { 
+     cout<<"\nPerimeter of Rectangle 2 is greater than Rectangle 1";
+   }
+   else
+   {
+     cout<<"\nPerimeter of Rectangle 1 and Rectangle 2 are equal";
+   }
+   return 0;
+ }
